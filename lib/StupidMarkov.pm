@@ -5,7 +5,7 @@ package StupidMarkov;
 use strict;
 use warnings;
 
-our $VERSION = "0.001001";
+our $VERSION = "0.001";
 
 
 sub new {
@@ -179,7 +179,7 @@ Wikipedia: http://en.wikipedia.org/Markov_chain
 
 =over 8
 
-=item 0.001001
+=item 0.001
 
 2009-05-02: First implementation and insomnia effect.
 

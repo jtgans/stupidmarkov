@@ -8,6 +8,7 @@ WriteMakefile(
     VERSION_FROM        => 'lib/StupidMarkov.pm',
     ABSTRACT_FROM       => 'lib/StupidMarkov.pm',
     PL_FILES            => {},
+    EXE_FILES           => [ 'bin/stupidmarkov-dissociator.pl' ],
     PREREQ_PM => {
         'Test::More' => 0,
     },
