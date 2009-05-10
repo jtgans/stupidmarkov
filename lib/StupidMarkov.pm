@@ -19,25 +19,25 @@ sub new {
         "_state" => undef,
     };
 
-    return bless($self, $class);
+    bless $self, $class;
 }
 
-sub getItemCount {
+sub get_item_count {
     my $self = shift;
     return $self->{"_item_count"};
 }
 
-sub getProbabilities {
+sub get_probabilities {
     my $self = shift;
     return $self->{"_probabilities"};
 }
 
-sub getState {
+sub get_state {
     my $self = shift;
     return $self->{"_state"};
 }
 
-sub addItem {
+sub add_item {
     my $self = shift;
     my $item = shift;
     my $prev_item = $self->{"_prev_item"};
@@ -57,7 +57,7 @@ sub addItem {
     $self->{"_item_count"}++;
 }
 
-sub _getProbableNextItem {
+sub _get_probable_next_item {
     my $self = shift;
     my $state = $self->{"_state"};
     my $probabilities = $self->{"_probabilities"};
@@ -72,7 +72,7 @@ sub _getProbableNextItem {
     return $items->[int(rand(@{$items}))];
 }
 
-sub getNextItem {
+sub get_next_item {
     my $self = shift;
     my $ext_state = shift;
     my $probabilities = $self->{"_probabilities"};
@@ -84,7 +84,7 @@ sub getNextItem {
         $self->{"_state"} = $self->{"_first_item"};
     }
 
-    $self->{"_state"} = $self->_getProbableNextItem();
+    $self->{"_state"} = $self->_get_probable_next_item();
     return $self->{"_state"};
 }
 
@@ -108,11 +108,11 @@ StupidMarkov - A stupid Markov chain implementation.
       next if !defined $line;
 
       foreach my $word (split(/ /, $line)) {
-          $mm->addItem($word);
+          $mm->add_item($word);
       }
   }
 
-  print $mm->getNextItem(), " " for (0 .. $mm->getItemCount());
+  print $mm->get_next_item(), " " for (0 .. $mm->get_item_count());
 
 =head1 DESCRIPTION
 
@@ -144,30 +144,30 @@ paragraph results in output like the following:
 
 Create a new StupidMarkov chain.
 
-=item getItemCount
+=item get_item_count
 
 Return the number of items that have been added to the chain. Note
 that this number is cumulative, and does not count uniqueness.
 
-=item getProbabilities
+=item get_probabilities
 
 Return a reference to the internal probability hash of items to
 hash of next items to integer probabilities. Probably not very
 useful.
 
-=item getState
+=item get_state
 
 Return the current item that is used as the internal state.
 
-=item addItem
+=item add_item
 
 Add an item to the Markov chain.
 
-=item getNextItem
+=item get_next_item
 
 Generate the next item in the Markov chain. Takes an optional argument
 that represents the start state. If no argument is provided, the first
-item passed to addItem is used instead.
+item passed to add_item is used instead.
 
 =back
 

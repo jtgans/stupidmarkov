@@ -12,9 +12,9 @@ while (my $line = <>) {
     next if (!defined($line));
 
     foreach my $word (split(/ /, $line)) {
-        $mm->addItem($word);
+        $mm->add_item($word);
     }
 }
 
 
-print $mm->getNextItem(), " " for (0 .. $mm->getItemCount());
+print $mm->get_next_item(), " " for (0 .. $mm->get_item_count());
