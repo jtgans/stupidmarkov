@@ -5,7 +5,7 @@ package StupidMarkov;
 use strict;
 use warnings;
 
-our $VERSION = "0.001";
+our $VERSION = "0.002";
 
 
 sub new {
@@ -178,6 +178,11 @@ Wikipedia: http://en.wikipedia.org/Markov_chain
 =head1 REVISION HISTORY
 
 =over 8
+
+=item 0.002
+
+2009-05-10: Integrating apeiron's camel case is evil patch. Note that
+this represents an API change.
 
 =item 0.001
 
